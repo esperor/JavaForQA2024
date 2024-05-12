@@ -1,39 +1,24 @@
 package ru.shop.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.UUID;
 
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name = "\"order\"")
 public class Order {
-    private UUID id;
-    private UUID customerId;
-    private UUID productId;
-    private long count;
-    private long amount;
-
-    public Order(UUID id, UUID customerId, UUID productId, long count, long amount) {
-        this.id = id;
-        this.customerId = customerId;
-        this.productId = productId;
-        this.count = count;
-        this.amount = amount;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public UUID getCustomerId() {
-        return customerId;
-    }
-
-    public UUID getProductId() {
-        return productId;
-    }
-
-    public long getCount() {
-        return count;
-    }
-
-    public long getAmount() {
-        return amount;
-    }
+    @Id
+    UUID id;
+    UUID customerId;
+    UUID productId;
+    long count;
+    long amount;
 }

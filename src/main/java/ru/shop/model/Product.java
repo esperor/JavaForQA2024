@@ -1,33 +1,30 @@
 package ru.shop.model;
 
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.UUID;
 
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+// Сущности храниться в БД
+@Entity
+// Задаём таблицы для хранения
+@Table(name = "product")
 public class Product {
+
+    // первичный ключ
+    @Id
     private UUID id;
+
     private String name;
-    private long cost;
+
+    long cost;
+
+    // ENUM храниться в БД как строка
+    @Enumerated(EnumType.STRING)
     private ProductType productType;
-
-    public Product(UUID id, String name, long cost, ProductType productType) {
-        this.id = id;
-        this.name = name;
-        this.cost = cost;
-        this.productType = productType;
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public long getCost() {
-        return cost;
-    }
-
-    public ProductType getProductType() {
-        return productType;
-    }
 }

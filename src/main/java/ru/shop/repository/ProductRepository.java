@@ -1,21 +1,11 @@
 package ru.shop.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import ru.shop.model.Product;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 
-public class ProductRepository implements IRepository<Product> {
-    List<Product> products = new ArrayList<>();
-
-    public Product save(Product product)
-    {
-        products.add(product);
-        return product;
-    }
-
-    public List<Product> findAll()
-    {
-        return products;
-    }
+@Repository
+public interface ProductRepository extends JpaRepository<Product, UUID> {
 }

@@ -1,22 +1,11 @@
 package ru.shop.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import ru.shop.model.Order;
-import ru.shop.model.Product;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.UUID;
 
-public class OrderRepository implements IRepository<Order> {
-    List<Order> products = new ArrayList<>();
-
-    public Order save(Order order)
-    {
-        products.add(order);
-        return order;
-    }
-
-    public List<Order> findAll()
-    {
-        return products;
-    }
+@Repository
+public interface OrderRepository extends JpaRepository<Order, UUID> {
 }
