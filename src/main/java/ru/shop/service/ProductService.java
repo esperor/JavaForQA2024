@@ -13,12 +13,12 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class ProductService {
+public class ProductService implements IService<Product> {
 
     private final ProductRepository repository;
 
-    public void save(Product product) {
-        repository.save(product);
+    public Product save(Product product) {
+        return repository.save(product);
     }
 
     public List<Product> findAll() {

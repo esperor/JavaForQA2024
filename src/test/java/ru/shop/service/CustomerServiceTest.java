@@ -30,7 +30,6 @@ class CustomerServiceTest {
         Customer customer = customerService.getById(customerId);
 
         // then
-        Assertions.assertEquals(mockedCustomer, customer);
         assertThat(customer).isEqualTo(mockedCustomer);
     }
 

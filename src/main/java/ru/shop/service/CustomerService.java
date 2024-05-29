@@ -11,12 +11,12 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class CustomerService {
+public class CustomerService  implements IService<Customer> {
 
     private final CustomerRepository repository;
 
-    public void save(Customer customer) {
-        repository.save(customer);
+    public Customer save(Customer customer) {
+        return repository.save(customer);
     }
 
     public List<Customer> findAll() {
